@@ -1,4 +1,6 @@
 const express = require("express");
+// ROUTER
+const router = express.Router();
 const path = require("path");
 // MONGOOSE CONNECTION
 const mongoose = require("./config/mongoose");
@@ -15,6 +17,7 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(path.resolve(), "views"));
 app.use(expressEjsLayout);
+app.use("/", require("./routes"));
 app.listen(port, (err) => {
   if (err) {
     console.error(`error in server running `);

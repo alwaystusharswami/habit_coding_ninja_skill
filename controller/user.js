@@ -1,3 +1,3 @@
 module.exports.signUp = (req, res) => {
-  return res.redirect("/user/signIn");
+  return res.render("signup");
 };
