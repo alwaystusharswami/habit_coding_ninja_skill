@@ -1,5 +1,7 @@
 const express = require("express");
 const path = require("path");
+// MONGOOSE CONNECTION
+const mongoose = require("./config/mongoose");
 // ENV FILE ACCESS
 const dotenv = require("dotenv").config();
 // PORT
