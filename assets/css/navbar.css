@@ -1,0 +1,22 @@
+.navbar {
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.navbar .list {
+  width: 30%;
+}
+
+.navbar .list ul {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.navbar .list ul a {
+  text-decoration: none;
+  color: #fff;
+}
