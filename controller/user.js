@@ -1,4 +1,7 @@
 const User = require("../models/userSchema");
+module.exports.profile = (req, res) => {
+  return res.render("profile");
+};
 module.exports.signUp = (req, res) => {
   return res.render("signup");
 };
@@ -13,6 +16,6 @@ module.exports.createUser = async (req, res) => {
   return res.redirect("/user/signin");
 };
 module.exports.createSession = (req, res) => {
-  console.log(req.isAuthenticated())
+  console.log(req.isAuthenticated());
   return res.redirect("/");
 };
