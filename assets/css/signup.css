@@ -6,7 +6,7 @@
 }
 
 #sign-up form {
-  box-shadow: 1px 1px 10px gray;
+  background-color: #fff;
   width: 35%;
   display: flex;
   flex-direction: column;
@@ -20,17 +20,42 @@
   padding: 2rem;
 }
 
-#sign-up form div label {
-  font-size: 1.5rem;
+#sign-up form div {
+  width: 100%;
 }
 
 #sign-up form div input {
-  font-size: 2rem;
+  width: 90%;
+  font-size: 1.5rem;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #023430;
+  padding: 1rem 0;
+}
+
+#sign-up form div input::placeholder {
+  font-size: 1.5rem;
 }
 
 #sign-up form div button {
-  padding: 10px 20px;
-  margin-top: 1rem;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 20px 40px;
+  background-color: #00ed64;
+  margin: 1rem 0;
+  border-color: #00684a;
+  border-width: 0.5px;
+}
+
+#sign-up form div p {
+  margin-left: 1rem;
+}
+
+#sign-up form div p a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+#sign-up form div p:hover {
+  text-decoration: underline;
 }

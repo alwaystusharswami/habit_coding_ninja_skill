@@ -2,24 +2,38 @@
 <section id="sign-up">
   <form action="/user/create" method="post">
     <div>
-        <label for="name">Name</label><br>
-        <input type="text" name="name" id="name" />
-      </div>
-      <div>
-        <label for="email">Email</label><br>
-        <input type="text" name="email" id="email" />
-      </div>
-      <div>
-        <label for="password">Password</label><br>
-        <input type="text" name="password" id="password" />
-      </div>
-      <div>
-        <label for="confirmPassword">Confirm-Password</label><br>
-        <input type="text" name="confirmPassword" id="confirmPassword" />
-      </div>
-      <div>
-        <button type="submit">Sign Up</button>
-      </div>
-  </form>
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        placeholder="First-Name"
+        autocomplete="off"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        placeholder="Last-Name"
+        autocomplete="off"
+      />
+    </div>
+    <div>
+      <input type="text" name="email" id="email" placeholder="Email" />
+    </div>
+    <div>
+      <input type="text" name="password" id="password" placeholder="Password" autocomplete="off" />
+    </div>
+    <div>
+      <input type="text" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" autocomplete="off" />
+    </div>
+    <div>
+      <button type="submit">Create Your Habit Account</button>
+    </div>
+    <div>
+      <p><a href="/user/signIn">Sign In</a></p>
+    </div>
 
+  </form>
 </section>
