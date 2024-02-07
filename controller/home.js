@@ -1,3 +1,7 @@
 module.exports.home = (req, res) => {
-  return res.render("home");
+  try {
+    return res.render("home");
+  } catch (error) {
+    console.error(error);
+  }
 };

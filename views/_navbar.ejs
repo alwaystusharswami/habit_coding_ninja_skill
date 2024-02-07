@@ -3,11 +3,11 @@
   <div><h1>Habit App</h1></div>
   <div class="list">
     <ul>
+      <%if(locals.user){%>
       <li><a href="">Detail View</a></li>
       <li><a href="">Weekly View</a></li>
-      <li><a href="/user/profile">user name</a></li>
-      <li><a href="/user/signin">Sign In</a></li>
-      <li><a href="/user/signup">Sign Up</a></li>
+      <li><a href="/user/profile"><%=user.name%></a></li>
+      <%}%>
     </ul>
   </div>
 </nav>

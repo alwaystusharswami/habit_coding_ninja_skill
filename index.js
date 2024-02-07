@@ -35,8 +35,7 @@ app.use(
 app.use(express.static(path.join(path.resolve(), "assets")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cookieParser())
-
+app.use(cookieParser());
 
 // VIEW ENGINE
 app.set("view engine", "ejs");
@@ -57,6 +56,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(passport.setAuthenticatedUser);
 app.use("/", require("./routes"));
 app.listen(port, (err) => {
   if (err) {

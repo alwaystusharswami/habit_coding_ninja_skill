@@ -1,3 +1,18 @@
-<h1>
-    HOME
-</h1>
+<link rel="stylesheet" href="/css/home.css" />
+<section id="home">
+  <%if(locals.user){%> <%=user.name%> <%}else{%>
+  <div id="home-signIn">
+    <h1>Loved By People:</h1>
+    <h1>Build For Track <span>Daily</span> Routine</h1>
+    <h2>
+      “I insist on a lot of time being spent, almost every day, to just sit and
+      think. <br> That is very uncommon in American business. I read and think. So I
+      do more reading and thinking, <br>and make less impulse decisions than most
+      people in business. <br> I do it because I like this kind of life.”
+    </h2>
+    <p>
+      <a href="/user/signUp"><button> Start Free</button></a>
+    </p>
+  </div>
+  <%}%>
+</section>

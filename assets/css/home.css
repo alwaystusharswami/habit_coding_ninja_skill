@@ -1,0 +1,48 @@
+#home {
+  background-color: #023430;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#home #home-signIn {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #b8c4c2;
+}
+
+#home #home-signIn h1 {
+  font-size: 4rem;
+  margin: 1rem 0;
+}
+
+#home #home-signIn h1 span {
+  color: #00684a;
+}
+
+#home #home-signIn h2 {
+  margin: 1.5rem 0;
+  font-size: 2rem;
+}
+
+#home #home-signIn a {
+  text-decoration: none;
+  border-color: #00684a;
+}
+
+#home #home-signIn a button {
+  font-size: 2rem;
+  padding: 20px 40px;
+  background-color: #00ed64;
+}
+
+#home #home-signIn a button:hover {
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+}

@@ -16,6 +16,5 @@ module.exports.createUser = async (req, res) => {
   return res.redirect("/user/signin");
 };
 module.exports.createSession = (req, res) => {
-  console.log(req.isAuthenticated());
   return res.redirect("/");
 };
