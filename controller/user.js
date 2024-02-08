@@ -12,14 +12,14 @@ module.exports.signOut = (req, res) => {
   return res.redirect("/user/signIn");
 };
 module.exports.signIn = (req, res) => {
-  return res.render("signin");
+  return res.render("signIn");
 };
 module.exports.createUser = async (req, res) => {
   if (req.body.password != req.body.confirmPassword) {
     return res.redirect("back");
   }
   const user = await User.create(req.body);
-  return res.redirect("/user/signin");
+  return res.redirect("/user/signIn");
 };
 module.exports.createSession = (req, res) => {
   return res.redirect("/");

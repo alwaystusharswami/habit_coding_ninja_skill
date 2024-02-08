@@ -22,12 +22,20 @@
   flex-direction: column;
   color: #fff;
   border-bottom: 2px solid #fff;
-  height: 10vh;
 }
 
 #home #main-habit-page #habit .habit-box div {
   display: flex;
   justify-content: space-between;
+}
+
+#home #main-habit-page #habit .habit-box div form {
+  padding: 1rem 0;
+}
+
+#home #main-habit-page #habit .habit-box div form #complete {
+  height: 2rem;
+  width: 2rem;
 }
 
 #home #main-habit-page #habit-form {

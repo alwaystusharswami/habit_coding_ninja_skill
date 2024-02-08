@@ -11,7 +11,11 @@
           <h3><%=i.time%></h3>
         </div>
         <div>
-          <input type="checkbox" name="complete" id="" />
+          <form action="/habit/complete/<%=i.id%>" method="post">
+            <input type="checkbox" name="complete" id="complete"
+            value="<%=i.complete%>" onchange="this.form.submit()" <%= i.complete
+            ? 'checked' : '' %> />
+          </form>
           <p>icon</p>
         </div>
         <div>

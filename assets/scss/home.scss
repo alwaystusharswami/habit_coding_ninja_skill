@@ -20,11 +20,17 @@
         flex-direction: column;
         color: #fff;
         border-bottom: 2px solid #fff;
-        height: 10vh;
 
         div {
           display: flex;
           justify-content: space-between;
+          form{
+            padding: 1rem 0;
+            #complete{
+              height: 2rem;
+              width: 2rem;
+            }
+          }
         }
       }
     }
