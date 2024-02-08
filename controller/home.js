@@ -5,3 +5,4 @@ module.exports.home = (req, res) => {
     console.error(error);
   }
 };
+
