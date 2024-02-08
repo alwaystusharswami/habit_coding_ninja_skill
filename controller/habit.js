@@ -16,9 +16,19 @@ module.exports.createHabit = async (req, res) => {
 module.exports.complete = async (req, res) => {
   const isTrueSet = String(req.body.complete).toLowerCase() === "false";
   console.log(isTrueSet);
-  const habit =await Habit.findByIdAndUpdate(req.params.id, {
-    $set:{complete: isTrueSet,}
-  });
-  console.log(habit)
+  if (isTrueSet) {
+    const habit = await Habit.findByIdAndUpdate(req.params.id, {
+      $set: { complete: isTrueSet },
+      $inc: { strike: 1,totalDays:1,totalComplete:1,day:1 },
+    });
+    console.log(habit);
+  } else {
+    const habit = await Habit.findByIdAndUpdate(req.params.id, {
+      $set: { complete: isTrueSet },
+      $inc: { strike: -1,totalDays:-1,totalComplete:-1,day:-1 },
+    });
+    console.log(habit);
+  }
+
   return res.redirect("/");
 };
