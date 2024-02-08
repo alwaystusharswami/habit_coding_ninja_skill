@@ -8,6 +8,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 // MONGOOSE CONNECTION
 const mongoose = require("./config/mongoose");
+const mongoStore = require("connect-mongo");
 
 // PORT
 const port = process.env.PORT | 8000;
@@ -53,6 +54,10 @@ app.use(
     cookie: {
       maxAge: 1000 * 60 * 10,
     },
+    store: mongoStore.create({
+      mongoUrl: "mongodb://localhost/habitApp",
+      autoRemove: 'disabled'
+    }),
   })
 );
 app.use(passport.initialize());
