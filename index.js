@@ -1,8 +1,5 @@
 // ENV FILE ACCESS
 require("dotenv").config();
-const express = require("express");
-// ROUTER
-const router = express.Router();
 const path = require("path");
 // BODY PARSER
 const bodyParser = require("body-parser");
@@ -18,11 +15,17 @@ const expressEjsLayout = require("express-ejs-layouts");
 const sassMiddleware = require("node-sass-middleware");
 // COOKIE PARSER //
 const cookieParser = require("cookie-parser");
+// NODE-CRON //
+const cron = require("./config/node-cron");
 // SESSION //
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-stratergy");
-// SERVER
+//////
+// SERVER //
+const express = require("express");
+// ROUTER
+const router = express.Router();
 const app = express();
 // MIDDLEWARE
 app.use(
@@ -56,7 +59,7 @@ app.use(
     },
     store: mongoStore.create({
       mongoUrl: "mongodb://localhost/habitApp",
-      autoRemove: 'disabled'
+      autoRemove: "disabled",
     }),
   })
 );
