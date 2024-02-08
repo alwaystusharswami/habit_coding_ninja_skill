@@ -1,8 +1,97 @@
 #home {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
+  #main-habit-page {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    #habit {
+      width: 50%;
+      margin: 2rem;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .habit-box {
+        padding: 0.5rem 3rem;
+        margin: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        color: #fff;
+        border-bottom: 2px solid #fff;
+        height: 10vh;
+
+        div {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
+    #habit-form {
+      color: #fff;
+      width: 40%;
+      h1{
+        margin: 3rem;
+        
+      }
+
+      form {
+        position: fixed;
+        right: 5%;
+        top: 20%;
+        background-color: #fff;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1rem;
+        -webkit-border-radius: 1rem;
+        -moz-border-radius: 1rem;
+        -ms-border-radius: 1rem;
+        -o-border-radius: 1rem;
+        padding: 2rem;
+        div {
+          width: 100%;
+          input {
+            width: 90%;
+            font-size: 1.5rem;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid #023430;
+            padding: 1rem 0;
+          }
+          input::placeholder {
+            font-size: 1.5rem;
+          }
+          select{
+            
+            width: 90%;
+            font-size: 1.5rem;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid #023430;
+            padding: 1rem 0;
+          }
+          #time{
+            width: 30% !important;
+          }
+          button {
+            font-size: 1.2rem;
+            padding: 20px 40px;
+            background-color: #00ed64;
+            margin: 1rem 0;
+            border-color: #00684a;
+            border-width: 0.5px;
+          }
+        }
+      }
+    }
+  }
+
   #home-signIn {
+    width: 90%;
     padding: 2rem;
     display: flex;
     flex-direction: column;

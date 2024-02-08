@@ -1,17 +1,91 @@
 <link rel="stylesheet" href="/css/home.css" />
 <section id="home">
-  <%if(locals.user){%> <%=user.name%> <%}else{%>
+  <%if(locals.user){%>
+
+  <div id="main-habit-page">
+    <div id="habit">
+      <div class="habit-box">
+        <div>
+          <h1>Workout</h1>
+          <h3>Time</h3>
+        </div>
+        <div>
+          <input type="checkbox" name="complete" id="" />
+          <p>icone</p>
+        </div>
+        <div>
+          <h1>1 days</h1>
+          <h1>9 best</h1>
+          <h1>38/92</h1>
+          <h1>Daily</h1>
+        </div>
+        </div>
+        <div class="habit-box">
+          <div>
+            <h1>Workout</h1>
+            <h3>Time</h3>
+          </div>
+          <div>
+            <input type="checkbox" name="complete" id="" />
+            <p>icone</p>
+          </div>
+          <div>
+            <h1>1 days</h1>
+            <h1>9 best</h1>
+            <h1>38/92</h1>
+            <h1>Daily</h1>
+          </div>
+      </div>
+    </div>
+    <div id="habit-form">
+      <h1>Add Your Habit</h1>
+      <form action="" method="post">
+        <div>
+          <input
+            required
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Habit Title"
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <select name="repeat" id="">
+            <option value=""></option>
+            <option value="daily">Daily</option>
+          </select>
+        </div>
+        <div>
+          <input
+            required
+            type="time"
+            name="time"
+            id="time"
+            placeholder="Habit Title"
+            autocomplete="off"
+          />
+        </div>
+        <div>
+          <button type="submit">Add Habit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <%}else{%>
   <div id="home-signIn">
     <h1>Loved By People:</h1>
     <h1>Build For Track <span>Daily</span> Routine</h1>
     <h2>
       “I insist on a lot of time being spent, almost every day, to just sit and
-      think. <br> That is very uncommon in American business. I read and think. So I
-      do more reading and thinking, <br>and make less impulse decisions than most
-      people in business. <br> I do it because I like this kind of life.”
+      think. <br />
+      That is very uncommon in American business. I read and think. So I do more
+      reading and thinking, <br />and make less impulse decisions than most
+      people in business. <br />
+      I do it because I like this kind of life.”
     </h2>
     <p>
-      <a href="/user/signUp"><button> Start Free</button></a>
+      <a href="/user/signUp"><button>Start Free</button></a>
     </p>
   </div>
   <%}%>
