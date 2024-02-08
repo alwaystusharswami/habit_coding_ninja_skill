@@ -5,36 +5,22 @@
   <div id="main-habit-page">
     <div id="habit">
       <div class="habit-box">
+        <%for(i of habit){%>
         <div>
-          <h1>Workout</h1>
-          <h3>Time</h3>
+          <h1><%=i.title%></h1>
+          <h3><%=i.time%></h3>
         </div>
         <div>
           <input type="checkbox" name="complete" id="" />
-          <p>icone</p>
+          <p>icon</p>
         </div>
         <div>
-          <h1>1 days</h1>
-          <h1>9 best</h1>
-          <h1>38/92</h1>
-          <h1>Daily</h1>
+          <h1><%=i.day%> days</h1>
+          <h1><%=i.strike%> best</h1>
+          <h1><%=i.totalComplete%>/<%=i.totalDays%></h1>
+          <h1><%=i.repeat%></h1>
         </div>
-        </div>
-        <div class="habit-box">
-          <div>
-            <h1>Workout</h1>
-            <h3>Time</h3>
-          </div>
-          <div>
-            <input type="checkbox" name="complete" id="" />
-            <p>icone</p>
-          </div>
-          <div>
-            <h1>1 days</h1>
-            <h1>9 best</h1>
-            <h1>38/92</h1>
-            <h1>Daily</h1>
-          </div>
+        <%}%>
       </div>
     </div>
     <div id="habit-form">

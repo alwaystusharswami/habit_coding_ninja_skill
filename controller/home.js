@@ -1,8 +1,9 @@
-module.exports.home = (req, res) => {
+const Habit = require("../models/habitSchema");
+module.exports.home = async (req, res) => {
   try {
-    return res.render("home");
+    const habit = await Habit.find();
+    return res.render("home", { habit });
   } catch (error) {
     console.error(error);
   }
 };
-
