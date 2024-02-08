@@ -5,6 +5,12 @@ module.exports.profile = (req, res) => {
 module.exports.signUp = (req, res) => {
   return res.render("signup");
 };
+module.exports.signOut = (req, res) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+  });
+  return res.redirect("/user/signIn");
+};
 module.exports.signIn = (req, res) => {
   return res.render("signin");
 };

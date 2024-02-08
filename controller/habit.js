@@ -8,6 +8,7 @@ module.exports.createHabit = async (req, res) => {
     totalDays: 0,
     totalComplete: 0,
     day: 0,
+    User:req.user._id
   });
   return res.redirect("/");
 };

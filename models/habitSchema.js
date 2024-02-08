@@ -8,6 +8,7 @@ const habitSchema = new mongoose.Schema(
     totalDays: { type: Number, required: true },
     totalComplete: { type: Number, required: true },
     day: { type: Number, required: true },
+    User: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }
 );
