@@ -4,8 +4,9 @@
 
   <div id="main-habit-page">
     <div id="habit">
+      <%for(i of habit){%> <%if(i.User.id==locals.user.id){%>
+
       <div class="habit-box">
-        <%for(i of habit){%> <%if(i.User.id==locals.user.id){%>
         <div>
           <h1><%=i.title%></h1>
           <h3><%=i.time%></h3>
@@ -24,8 +25,9 @@
           <h1><%=i.totalComplete%>/<%=i.totalDays%></h1>
           <h1><%=i.repeat%></h1>
         </div>
-        <%}%> <%}%>
+        <%}%>
       </div>
+      <%}%>
     </div>
     <div id="habit-form">
       <h1>Add Your Habit</h1>
