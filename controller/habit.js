@@ -27,13 +27,35 @@ module.exports.complete = async (req, res) => {
       $set: { complete: isTrueSet },
       $inc: { strike: 1, totalDays: 1, totalComplete: 1, day: 1 },
     });
-
-    console.log(habit);
+    const weekData = await WeeklyDoneHabit.find({ Habit: habit.id });
+    for (i of weekData) {
+      const today = new Date();
+      if (
+        i.date.getDate() == today.getDate() &&
+        i.date.getMonth() == today.getMonth() &&
+        !i.complete
+      ) {
+        i.complete = true;
+        i.save();
+      }
+    }
   } else {
     const habit = await Habit.findByIdAndUpdate(req.params.id, {
       $set: { complete: isTrueSet },
       $inc: { strike: -1, totalDays: -1, totalComplete: -1, day: -1 },
     });
+    const weekData = await WeeklyDoneHabit.find({ Habit: habit.id });
+    for (i of weekData) {
+      const today = new Date();
+      if (
+        i.date.getDate() == today.getDate() &&
+        i.date.getMonth() == today.getMonth() &&
+        i.complete
+      ) {
+        i.complete = false;
+        i.save();
+      }
+    }
   }
 
   return res.redirect("/");

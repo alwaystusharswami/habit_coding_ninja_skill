@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const WeeklyDoneHabit = require("../models/weeklyHabit");
 const Habit = require("../models/habitSchema");
-cron.schedule("10 * * * * *", async () => {
+cron.schedule("0 0 * * *", async () => {
   // This function will be called every day at midnight
   console.log("Task scheduled for midnight.");
   // Call your function here
