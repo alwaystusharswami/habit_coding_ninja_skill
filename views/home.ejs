@@ -1,34 +1,8 @@
 <link rel="stylesheet" href="/css/home.css" />
 <section id="home">
   <%if(locals.user){%>
-
   <div id="main-habit-page">
-    <div id="habit">
-      <%for(i of habit){%> <%if(i.User.id==locals.user.id){%>
-
-      <div class="habit-box">
-        <div>
-          <h1><%=i.title%></h1>
-          <h3><%=i.time%></h3>
-        </div>
-        <div>
-          <form action="/habit/complete/<%=i.id%>" method="post">
-            <input type="checkbox" name="complete" id="complete"
-            value="<%=i.complete%>" onchange="this.form.submit()" <%= i.complete
-            ? 'checked' : '' %> />
-          </form>
-          <p>icon</p>
-        </div>
-        <div>
-          <h1><%=i.day%> days</h1>
-          <h1><%=i.strike%> best</h1>
-          <h1><%=i.totalComplete%>/<%=i.totalDays%></h1>
-          <h1><%=i.repeat%></h1>
-        </div>
-        <%}%>
-      </div>
-      <%}%>
-    </div>
+    <div id="habit"><%-include('_habit.ejs')%></div>
     <div id="habit-form">
       <h1>Add Your Habit</h1>
       <form action="/habit/create" method="post">

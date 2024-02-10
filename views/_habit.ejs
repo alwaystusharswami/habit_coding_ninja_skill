@@ -1,0 +1,24 @@
+
+<%for(i of habit){%>
+
+    <div class="habit-box">
+      <div>
+        <h1><%=i.title%></h1>
+        <h3><%=i.time%></h3>
+      </div>
+      <div>
+        <form action="/habit/complete/<%=i.id%>" method="post">
+          <input type="checkbox" name="complete" id="complete"
+          value="<%=i.complete%>" onchange="this.form.submit()" <%= i.complete ?
+          'checked' : '' %> />
+        </form>
+        <p>icon</p>
+      </div>
+      <div>
+        <h1><%=i.day%> days</h1>
+        <h1><%=i.strike%> best</h1>
+        <h1><%=i.totalComplete%>/<%=i.totalDays%></h1>
+        <h1><%=i.repeat%></h1>
+      </div>
+    </div>
+    <%}%>
