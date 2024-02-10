@@ -1,4 +1,5 @@
 const cron = require("node-cron");
+const WeeklyDoneHabit = require("../models/weeklyHabit");
 const Habit = require("../models/habitSchema");
 cron.schedule("0 0 * * *", async () => {
   // This function will be called every day at midnight
@@ -6,6 +7,11 @@ cron.schedule("0 0 * * *", async () => {
   // Call your function here
   const habit = await Habit.find();
   for (let i of habit) {
+    await WeeklyDoneHabit.create({
+      Habit:i.id,
+      date:new Date(),
+      complete:false
+    });
     if (i.complete) {
       updateTrue(i.id);
     } else {
