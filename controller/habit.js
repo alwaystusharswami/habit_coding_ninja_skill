@@ -11,11 +11,13 @@ module.exports.createHabit = async (req, res) => {
     complete: false,
     User: req.user._id,
   });
-  await WeeklyDoneHabit.create({
-    Habit:habit.id,
-    date:new Date(),
-    complete:false
+  const week = await WeeklyDoneHabit.create({
+    Habit: habit.id,
+    date: new Date(),
+    complete: false,
   });
+  habit.daily.push(week);
+  habit.save();
   return res.redirect("/");
 };
 module.exports.complete = async (req, res) => {
@@ -25,6 +27,7 @@ module.exports.complete = async (req, res) => {
       $set: { complete: isTrueSet },
       $inc: { strike: 1, totalDays: 1, totalComplete: 1, day: 1 },
     });
+
     console.log(habit);
   } else {
     const habit = await Habit.findByIdAndUpdate(req.params.id, {

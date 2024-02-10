@@ -6,7 +6,6 @@ module.exports.home = async (req, res) => {
       const habit = await Habit.find({ User: req.user.id });
       for(i of habit){
       let week = await WeeklyDoneHabit.find({Habit:i.id});
-      console.log(week[0].date.getDate());
       }
       return res.render("home", { habit });
     }
