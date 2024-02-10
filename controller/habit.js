@@ -9,7 +9,6 @@ module.exports.createHabit = async (req, res) => {
     day: 0,
     complete: false,
     User: req.user._id,
-    dates:{date:getTodayDated(),complete:false}
   });
   return res.redirect("/");
 };
@@ -17,15 +16,10 @@ module.exports.complete = async (req, res) => {
   const isTrueSet = String(req.body.complete).toLowerCase() === "false";
   if (isTrueSet) {
     const habit = await Habit.findByIdAndUpdate(req.params.id, {
-      $set: { complete: isTrueSet },
+      $set: { complete: isTrueSet},
       $inc: { strike: 1, totalDays: 1, totalComplete: 1, day: 1 },
     });
-    // const date=new Date().toLocaleDateString()
-    await CompleteHabit.create({
-      done: true,
-      date: new Date().toLocaleDateString(),
-      habit: req.params.id,
-    });
+    console.log(habit)
   } else {
     const habit = await Habit.findByIdAndUpdate(req.params.id, {
       $set: { complete: isTrueSet },
