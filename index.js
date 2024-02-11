@@ -55,7 +55,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 1000 * 60 * 10,
+      maxAge: 24*60*60*1000,
     },
     store: mongoStore.create({
       mongoUrl: "mongodb://localhost/habitApp",

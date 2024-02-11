@@ -63,10 +63,10 @@ module.exports.complete = async (req, res) => {
 module.exports.weekView = async (req, res) => {
   if (req.user) {
     const habit = await Habit.find({ User: req.user.id })
-      .populate({ path: "daily" }).exec();
-    console.log("ha");
-    console.log(habit);
-    return res.render("weekview", { habit });
+      .populate({ path: "daily" })
+      .exec();
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    return res.render("weekview", { habit, date: new Date(), week: days });
   }
   return res.render("weekview");
 };

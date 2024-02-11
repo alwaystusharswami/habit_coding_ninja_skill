@@ -1,3 +1,18 @@
+<link rel="stylesheet" href="/css/weekly.css" />
 <section id="weekview">
-        <h1 style="color: white;"><%=habit[0].daily[0].complete%></h1> <br>
+  <div id="calender">
+    <%for(i of habit){%>
+    <div id="box">
+      <h1><%=i.title%></h1>
+
+      <%for(j of i.daily){%>
+      <div id="dates">
+        <h1><%=j.date.getDate()%> /<span><%=j.date.getMonth()%></span>/<span><%=j.date.getFullYear()%></span></h1>
+        <h1><%=j.complete%></h1>
+      </div>
+
+      <%}%>
+    </div>
+    <%}%>
+  </div>
 </section>
