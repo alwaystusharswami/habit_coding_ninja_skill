@@ -60,10 +60,13 @@ module.exports.complete = async (req, res) => {
 
   return res.redirect("/");
 };
-function getTodayDated() {
-  const today = new Date();
-  let date = today.getDate();
-  let month = today.getMonth() + 1;
-  let year = today.getFullYear();
-  return date + " " + month + " " + year;
-}
+module.exports.weekView = async (req, res) => {
+  if (req.user) {
+    const habit = await Habit.find({ User: req.user.id })
+      .populate({ path: "daily" }).exec();
+    console.log("ha");
+    console.log(habit);
+    return res.render("weekview", { habit });
+  }
+  return res.render("weekview");
+};
