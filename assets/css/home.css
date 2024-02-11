@@ -38,6 +38,15 @@
   width: 2rem;
 }
 
+#home #main-habit-page #habit .habit-box div a {
+  color: #00ed64;
+  font-size: 2rem;
+}
+
+#home #main-habit-page #habit .habit-box div a:hover {
+  color: red;
+}
+
 #home #main-habit-page #habit-form {
   color: #fff;
   width: 40%;

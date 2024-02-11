@@ -70,3 +70,10 @@ module.exports.weekView = async (req, res) => {
   }
   return res.render("weekview");
 };
+module.exports.destroy = async (req, res) => {
+  if (req.user) {
+    await Habit.findByIdAndDelete(req.params.id);
+    await WeeklyDoneHabit.findByIdAndDelete(req.params.id)
+  }
+  return res.redirect("back");
+};
