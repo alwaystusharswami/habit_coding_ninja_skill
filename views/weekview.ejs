@@ -5,13 +5,23 @@
     <div id="box">
       <h1><%=i.title%></h1>
 
-      <%for(j of i.daily){%>
       <div id="dates">
-        <h1><%=j.date.getDate()%> /<span><%=j.date.getMonth()%></span>/<span><%=j.date.getFullYear()%></span></h1>
-        <h1><%=j.complete%></h1>
+        <%for(j of i.daily){%>
+          <div id="datess">
+            <h1><%=j.date.getDate()%>/<span><%=j.date.getMonth()%></span>/<span><%=j.date.getFullYear()%></span></h1>
+            <%if(j.complete){%>
+              <h1>
+                <i class="fa-solid fa-square-check"></i>
+              </h1>
+              <%}else{%>
+                <h1>
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </h1>
+              <%}%>
+          </div>
+    
+          <%}%>
       </div>
-
-      <%}%>
     </div>
     <%}%>
   </div>
