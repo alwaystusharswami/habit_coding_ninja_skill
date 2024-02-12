@@ -18,6 +18,13 @@ module.exports.createHabit = async (req, res) => {
   });
   habit.daily.push(week);
   habit.save();
+  if(req.xhr){
+    return res.status(200).json({
+      data:{
+        habit:habit
+      }
+    })
+  }
   return res.redirect("/");
 };
 module.exports.complete = async (req, res) => {

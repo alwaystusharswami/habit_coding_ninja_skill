@@ -5,7 +5,7 @@
     <div id="habit"><%-include('_habit.ejs')%></div>
     <div id="habit-form">
       <h1>Add Your Habit</h1>
-      <form action="/habit/create" method="post">
+      <form action="/habit/create" method="post" id="habit-create">
         <div>
           <input
             required
@@ -50,3 +50,5 @@
   </div>
   <%}%>
 </section>
+
+<script src="/js/habit.js"></script>
