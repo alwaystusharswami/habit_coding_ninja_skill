@@ -11,15 +11,16 @@
           let newHabit = newHabitDom(data.data.habit);
           $("#habit").append(newHabit);
         },
-        Error: function (error) {
+        error: function (error) {
           console.log(error);
         },
       });
     });
+
     let newHabitDom = function (habit) {
       return $(`
         
-<div class="habit-box">
+<div id="habit-box${habit._id}" class="habit-box">
   <div>
     <h1>${habit.title}</h1>
     <h3>${habit.time}</h3>
@@ -37,12 +38,13 @@
     <h1>${habit.strike} best</h1>
     <h1>${habit.totalComplete}/${habit.totalDays}</h1>
     <h1>
-      <a href="/habit/destroy/${habit.id}"><i class="fa-solid fa-circle-xmark"></i></a>
+      <a href="/habit/destroy/${habit._id}"><i class="fa-solid fa-circle-xmark"></i></a>
     </h1>
   </div>
 </div>
 `);
     };
   };
+
   createHabit();
 }

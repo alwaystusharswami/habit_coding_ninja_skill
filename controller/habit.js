@@ -18,12 +18,14 @@ module.exports.createHabit = async (req, res) => {
   });
   habit.daily.push(week);
   habit.save();
-  if(req.xhr){
+  console.log(req.xhr);
+
+  if (req.xhr) {
     return res.status(200).json({
-      data:{
-        habit:habit
-      }
-    })
+      data: {
+        habit: habit,
+      },
+    });
   }
   return res.redirect("/");
 };
@@ -80,7 +82,9 @@ module.exports.weekView = async (req, res) => {
 module.exports.destroy = async (req, res) => {
   if (req.user) {
     await Habit.findByIdAndDelete(req.params.id);
-    await WeeklyDoneHabit.findByIdAndDelete(req.params.id)
+    await WeeklyDoneHabit.deleteMany({ Habit: req.params.id });
+    return res.redirect("back");
+  } else {
+    return res.redirect("back");
   }
-  return res.redirect("back");
 };

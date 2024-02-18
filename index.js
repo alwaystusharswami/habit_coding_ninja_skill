@@ -28,15 +28,15 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 // MIDDLEWARE
-app.use(
-  sassMiddleware({
-    src: "./assets/scss",
-    dest: "./assets/css",
-    debug: true,
-    outputStyle: "expanded",
-    prefix: "/css",
-  })
-);
+// app.use(
+//   sassMiddleware({
+//     src: "./assets/scss",
+//     dest: "./assets/css",
+//     debug: true,
+//     outputStyle: "expanded",
+//     prefix: "/css",
+//   })
+// );
 app.use(express.static(path.join(path.resolve(), "assets")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

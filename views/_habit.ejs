@@ -1,6 +1,6 @@
 <%for(i of habit){%>
 
-<div class="habit-box">
+<div id="habit-box<%=i.id%>" class="habit-box">
   <div>
     <h1><%=i.title%></h1>
     <h3><%=i.time%></h3>
@@ -18,7 +18,7 @@
     <h1><%=i.strike%> best</h1>
     <h1><%=i.totalComplete%>/<%=i.totalDays%></h1>
     <h1>
-      <a href="/habit/destroy/<%=i.id%>"><i class="fa-solid fa-circle-xmark"></i></a>
+      <a href="/habit/destroy/<%=i.id%>" class="delete-habit"><i class="fa-solid fa-circle-xmark"></i></a>
     </h1>
   </div>
 </div>
