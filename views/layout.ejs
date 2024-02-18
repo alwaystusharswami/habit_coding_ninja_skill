@@ -13,6 +13,8 @@
     <%-style%>
   </head>
   <body>
-    <%-include('_navbar.ejs')%> <%-body%>
+    <%-include('_navbar.ejs')%> <%if(flash.success){%>
+    <h2><%=flash.success%></h2>
+    <%}%> <%-body%>
   </body>
 </html>

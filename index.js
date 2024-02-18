@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 // MONGOOSE CONNECTION
 const mongoose = require("./config/mongoose");
 const mongoStore = require("connect-mongo");
+const flash = require("connect-flash");
+const customMiddleware = require("./config/customMiddleware");
 
 // PORT
 const port = process.env.PORT | 8000;
@@ -28,15 +30,15 @@ const express = require("express");
 const router = express.Router();
 const app = express();
 // MIDDLEWARE
-// app.use(
-//   sassMiddleware({
-//     src: "./assets/scss",
-//     dest: "./assets/css",
-//     debug: true,
-//     outputStyle: "expanded",
-//     prefix: "/css",
-//   })
-// );
+app.use(
+  sassMiddleware({
+    src: "./assets/scss",
+    dest: "./assets/css",
+    debug: true,
+    outputStyle: "expanded",
+    prefix: "/css",
+  })
+);
 app.use(express.static(path.join(path.resolve(), "assets")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -55,7 +57,7 @@ app.use(
     saveUninitialized: false,
     resave: false,
     cookie: {
-      maxAge: 24*60*60*1000,
+      maxAge: 24 * 60 * 60 * 1000,
     },
     store: mongoStore.create({
       mongoUrl: "mongodb://localhost/habitApp",
@@ -66,6 +68,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(customMiddleware.setFlash );
 app.use("/", require("./routes"));
 app.listen(port, (err) => {
   if (err) {

@@ -18,8 +18,7 @@ module.exports.createHabit = async (req, res) => {
   });
   habit.daily.push(week);
   habit.save();
-  console.log(req.xhr);
-
+  req.flash('success','new habit add');
   if (req.xhr) {
     return res.status(200).json({
       data: {
