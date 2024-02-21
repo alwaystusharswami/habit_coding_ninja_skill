@@ -2,20 +2,22 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/userSchema");
 passport.use(
-  new LocalStrategy({ usernameField: "email" }, async function (
-    email,
-    password,
-    done
-  ) {
-    const user = await User.findOne({ email: email });
+  new LocalStrategy(
+    { usernameField: "email", passReqToCallback: true },
+    async function (email, password, done) {
+      try {
+        const user = await User.findOne({ email: email });
 
-    if (!user || user.password != password) {
-      console.log(user);
-
-      return done(null, false);
+        if (!user || user.password != password) {
+          req.flash("error", "Please give valid userId & password");
+          return done(null, false);
+        }
+        return done(null, user);
+      } catch (error) {
+        console.log(error);
+      }
     }
-    return done(null, user);
-  })
+  )
 );
 passport.serializeUser(function (user, done) {
   done(null, user.id);
@@ -34,7 +36,6 @@ passport.checkAuthentication = function (req, res, next) {
 passport.setAuthenticatedUser = function (req, res, next) {
   if (req.isAuthenticated()) {
     res.locals.user = req.user;
-
   }
   next();
 };

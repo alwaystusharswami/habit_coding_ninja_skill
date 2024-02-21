@@ -16,11 +16,17 @@ module.exports.signIn = (req, res) => {
 };
 module.exports.createUser = async (req, res) => {
   if (req.body.password != req.body.confirmPassword) {
+  req.flash('success','Password not match');
+
     return res.redirect("back");
   }
   const user = await User.create(req.body);
+  req.flash('success','Sign Up Successful');
+
   return res.redirect("/user/signIn");
 };
 module.exports.createSession = (req, res) => {
+  req.flash('success','Sign In Successful');
+  
   return res.redirect("/");
 };
